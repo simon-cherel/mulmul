@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>cette fonctionnalité permet à mulmul de vous informer des bons plans autour de vous, même lorsque vous n'êtes pas sur l'application.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Cette fonctionnalité permet à mulmul de sélectionner les commerçant dont vous êtes les plus proches.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
