@@ -10,15 +10,43 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+		F9VNky5/9NO7BOXXg4PiIILxDwU=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		vKJkVIcw+LGHFnKJGwrQwCREv68=
+		FUleA/8lux9JZm+Sx7cUeDNuukc=
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
 		vxFDiclWibNluPCbN7eKg5eoJpU=
+		</data>
+		<key>flutter_assets/assets/.DS_Store</key>
+		<data>
+		cTK+NLw3VYTwiJSwnyHwqjDZr5A=
+		</data>
+		<key>flutter_assets/assets/.localisation.png</key>
+		<data>
+		EEysSVYdFGv4X3oNVtOuKDDR43g=
+		</data>
+		<key>flutter_assets/assets/Comfortaa/static/Comfortaa-Regular.ttf</key>
+		<data>
+		qf4bmChkc/3B5fzvP3VNf50CTCk=
+		</data>
+		<key>flutter_assets/assets/Montserrat/Montserrat-Regular.ttf</key>
+		<data>
+		0ls1JC3rHG/4iLgWLKKqzDVtOJk=
+		</data>
+		<key>flutter_assets/assets/localisation.png</key>
+		<data>
+		J4/7kz0PffntfMIBg2bwthHTrtc=
+		</data>
+		<key>flutter_assets/assets/localisation.svg</key>
+		<data>
+		nDhSUDKBqrKajX1sc6rMwklT4Ss=
+		</data>
+		<key>flutter_assets/assets/map_style_dark.json</key>
+		<data>
+		Vxq1E7frndhpYBH5qd7tqGVzWYU=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -30,7 +58,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		xmzxtlb9Dp9LTHdNRkmrLb9ax5w=
+		o0JpVMK3d5AORL1BynYqVkxYpXw=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -47,22 +75,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+			F9VNky5/9NO7BOXXg4PiIILxDwU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sps95+7JukayebvM0TLjL1LW1VXXndpKp/O8tOm9ZR8=
+			lrGN3uvaxI6h11u7WVAgIbXEbed5qIptIBu/qJ/Tq2Y=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vKJkVIcw+LGHFnKJGwrQwCREv68=
+			FUleA/8lux9JZm+Sx7cUeDNuukc=
 			</data>
 			<key>hash2</key>
 			<data>
-			zX4DZFvESy3Ue3y2JvUcTsv1Whl6t3JBYotHrBZfviE=
+			Onq6DUcDPjCm81YODmwupAsRZqkXzK1g2x3YTE7ew6k=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES</key>
@@ -74,6 +102,72 @@
 			<key>hash2</key>
 			<data>
 			YqyNd4/s+EAcW187HWU7KKDgp0Q7D2jQTMMz3AKKVu8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/.localisation.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EEysSVYdFGv4X3oNVtOuKDDR43g=
+			</data>
+			<key>hash2</key>
+			<data>
+			ULhTgWJltcfIZ5eJLPFBeBUVv3SrFRJa1f79/lVwAZ4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/Comfortaa/static/Comfortaa-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qf4bmChkc/3B5fzvP3VNf50CTCk=
+			</data>
+			<key>hash2</key>
+			<data>
+			vNhn9N210neYuybtmaHZJWSVTteN4rUiA5zhz1eh4ZQ=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/Montserrat/Montserrat-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0ls1JC3rHG/4iLgWLKKqzDVtOJk=
+			</data>
+			<key>hash2</key>
+			<data>
+			B3zasVFhIyqbpxJNLd16lCUUV1B4jpqWbBVsxmJ09SU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/localisation.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J4/7kz0PffntfMIBg2bwthHTrtc=
+			</data>
+			<key>hash2</key>
+			<data>
+			MJ8srmC9iFGkDX/Gu6Axz9ZZ3VCp3MROdEvIDiaffa4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/localisation.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nDhSUDKBqrKajX1sc6rMwklT4Ss=
+			</data>
+			<key>hash2</key>
+			<data>
+			IKnfYTYxISdwA9syHuCuz+97cr1xxVlu4n2os8AaGt8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/map_style_dark.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Vxq1E7frndhpYBH5qd7tqGVzWYU=
+			</data>
+			<key>hash2</key>
+			<data>
+			+Nu1mwVehQsj2KV0a6NAEPYRLdAVdHpL7ki3eWuuxz0=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -102,11 +196,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xmzxtlb9Dp9LTHdNRkmrLb9ax5w=
+			o0JpVMK3d5AORL1BynYqVkxYpXw=
 			</data>
 			<key>hash2</key>
 			<data>
-			xThS0MaIAE2G/Nib4uK48kWQLZrS7fx8+eaIGVCFhsw=
+			KVLBBjqzzbdhK/EaQQd/mnbx34y7WD9NYancXBFbYFU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

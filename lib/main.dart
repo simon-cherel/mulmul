@@ -1,23 +1,12 @@
-// ignore: unused_import
 import 'dart:async';
-import 'dart:developer';
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-Map<int, Color> color = {
-  50: Color.fromRGBO(136, 14, 79, .1),
-  100: Color.fromRGBO(136, 14, 79, .2),
-  200: Color.fromRGBO(136, 14, 79, .3),
-  300: Color.fromRGBO(136, 14, 79, .4),
-  400: Color.fromRGBO(136, 14, 79, .5),
-  500: Color.fromRGBO(136, 14, 79, .6),
-  600: Color.fromRGBO(136, 14, 79, .7),
-  700: Color.fromRGBO(136, 14, 79, .8),
-  800: Color.fromRGBO(136, 14, 79, .9),
-  900: Color.fromRGBO(136, 14, 79, 1),
-};
+import 'package:flutter/services.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
+
+import 'map_viewer.dart';
+import 'color_range.dart';
+import 'panier.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,6 +44,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool darkmode = false;
+  String mapStyle = '';
   dynamic savedThemeMode;
   IconData iconTheme = Icons.refresh_rounded;
 
@@ -73,17 +63,184 @@ class _HomeState extends State<Home> {
     }
   }
 
+  Future<String> getJsonFile(String path) async {
+    return await rootBundle.loadString(path);
+  }
+
   Future getCurrentTheme() async {
     savedThemeMode = await AdaptiveTheme.getThemeMode();
     if (savedThemeMode.toString() == 'AdaptiveThemeMode.dark') {
       setState(() {
         darkmode = true;
         iconTheme = Icons.nightlight_rounded;
+        // mapStyle = getJsonFile("assets/map_style_dark.json").toString();
+        mapStyle = '''[
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#242f3e"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#746855"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#242f3e"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#d59563"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#d59563"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#263c3f"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#6b9a76"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#38414e"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#212a37"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9ca5b3"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#746855"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#1f2835"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#f3d19c"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#2f3948"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.station",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#d59563"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#17263c"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#515c6d"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#17263c"
+        }
+      ]
+    }
+  ]''';
       });
     } else {
       setState(() {
         darkmode = false;
         iconTheme = Icons.wb_sunny_rounded;
+        mapStyle = '[{}]';
       });
     }
   }
@@ -94,66 +251,144 @@ class _HomeState extends State<Home> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          MapViewer(),
+          MapViewer(
+            mapStyle: mapStyle,
+          ),
+          Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black, Colors.transparent],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(),
+              )
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(30, 50, 30, 0),
             child: SizedBox.expand(
-              child: Wrap(
+              child: Column(
                 children: <Widget>[
-                  Container(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                        onPressed: changeCurrentTheme,
-                        icon: Icon(
-                          iconTheme,
-                          color: AdaptiveTheme.of(context).theme.primaryColor,
-                        )),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                          onPressed: changeCurrentTheme,
+                          icon: Icon(
+                            iconTheme,
+                            size: 30,
+                            color: AdaptiveTheme.of(context).theme.primaryColor,
+                          )),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'mulmul',
+                        style:
+                            TextStyle(fontSize: 42.0, fontFamily: 'Comfortaa'),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Evry, France',
+                        style:
+                            TextStyle(fontSize: 15.0, fontFamily: 'Montserra'),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: AdaptiveTheme.of(context)
+                                        .theme
+                                        .primaryColor,
+                                    width: 3,
+                                  ),
+                                  shape: BoxShape.circle,
+                                  color: AdaptiveTheme.of(context)
+                                      .theme
+                                      .accentColor),
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.messenger_outline_rounded,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 0),
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 20.0, fontFamily: 'Montserra'),
+                                decoration: InputDecoration(
+                                  suffixIcon: Icon(Icons.search_rounded),
+                                  hintText: 'Boulangerie, épicerie ...',
+                                  hintStyle: TextStyle(
+                                      fontSize: 20.0, fontFamily: 'Montserra'),
+                                  hintMaxLines: 1,
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(100)),
+                                      borderSide: BorderSide(
+                                          width: 3,
+                                          color: AdaptiveTheme.of(context)
+                                              .theme
+                                              .primaryColor)),
+                                  fillColor: AdaptiveTheme.of(context)
+                                      .theme
+                                      .accentColor,
+                                  filled: true,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 15,
+                    child: Container(),
                   ),
                 ],
               ),
             ),
           ),
+          panier(),
         ],
       ),
-    );
-  }
-}
-
-class MapViewer extends StatefulWidget {
-  const MapViewer({Key? key}) : super(key: key);
-
-  @override
-  _MapViewerState createState() => _MapViewerState();
-}
-
-class _MapViewerState extends State<MapViewer> {
-  Completer<GoogleMapController> _controller = Completer();
-
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
-
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
-
-  @override
-  Widget build(BuildContext context) {
-    return GoogleMap(
-      buildingsEnabled: false,
-      compassEnabled: false,
-      rotateGesturesEnabled: false,
-      myLocationButtonEnabled: true,
-      zoomControlsEnabled: true,
-      zoomGesturesEnabled: true,
-      mapType: MapType.normal,
-      initialCameraPosition: _kGooglePlex,
-      onMapCreated: (GoogleMapController controller) {
-        _controller.complete(controller);
-      },
     );
   }
 }
