@@ -302,6 +302,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "snapping_sheet",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/snapping_sheet-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///usr/local/Caskroom/flutter/2.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
       "packageUri": "lib/",
@@ -374,7 +380,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-07-08T01:29:54.286913Z",
+  "generated": "2021-07-08T13:09:07.484494Z",
   "generator": "pub",
   "generatorVersion": "2.13.3"
 }
