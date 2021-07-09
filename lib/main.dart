@@ -7,6 +7,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'map_viewer.dart';
 import 'color_range.dart';
 import 'panier.dart';
+import 'gestures.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       dark: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: MaterialColor(0xff8e7076, color),
+        primarySwatch: MaterialColor(0xff95767c, color),
         accentColor: MaterialColor(0xff19212f, color),
       ),
       initial: AdaptiveThemeMode.light,
@@ -292,101 +293,12 @@ class _HomeState extends State<Home> {
                           )),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'mulmul',
-                        style:
-                            TextStyle(fontSize: 42.0, fontFamily: 'Comfortaa'),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Evry, France',
-                        style:
-                            TextStyle(fontSize: 15.0, fontFamily: 'Montserra'),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AdaptiveTheme.of(context)
-                                        .theme
-                                        .primaryColor,
-                                    width: 3,
-                                  ),
-                                  shape: BoxShape.circle,
-                                  color: AdaptiveTheme.of(context)
-                                      .theme
-                                      .accentColor),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.messenger_outline_rounded,
-                                  size: 30,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Container(
-                              margin: EdgeInsets.symmetric(horizontal: 0),
-                              child: TextField(
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 20.0, fontFamily: 'Montserra'),
-                                decoration: InputDecoration(
-                                  suffixIcon: Icon(Icons.search_rounded),
-                                  hintText: 'Boulangerie, épicerie ...',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20.0, fontFamily: 'Montserra'),
-                                  hintMaxLines: 1,
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(100)),
-                                      borderSide: BorderSide(
-                                          width: 3,
-                                          color: AdaptiveTheme.of(context)
-                                              .theme
-                                              .primaryColor)),
-                                  fillColor: AdaptiveTheme.of(context)
-                                      .theme
-                                      .accentColor,
-                                  filled: true,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 15,
-                    child: Container(),
-                  ),
+                  Expanded(flex: 19, child: GestureBar()),
                 ],
               ),
             ),
           ),
-          panier(),
+          Panier(),
         ],
       ),
     );

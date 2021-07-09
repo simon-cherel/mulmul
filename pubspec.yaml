@@ -53,6 +53,7 @@ flutter:
   #  To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/persona.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -72,7 +73,8 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/Montserrat/Montserrat-Regular.ttf
-
+        - asset: assets/Montserrat/Montserrat-Bold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
