@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:mumul/messagerie.dart';
 
 import 'home.dart';
+import 'qr.dart';
 import 'background.dart';
 import 'color_range.dart';
 
@@ -48,7 +50,16 @@ class _DomState extends State<Dom> {
         alignment: Alignment.center,
         children: <Widget>[
           Background(),
-          Home(),
+          PageView(
+            controller: PageController(
+              initialPage: 1,
+            ),
+            children: [
+              Messagerie(),
+              Home(),
+              Qr(),
+            ],
+          ),
         ],
       ),
     );

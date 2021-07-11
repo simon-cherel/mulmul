@@ -10,6 +10,8 @@ class Messagerie extends StatefulWidget {
 class _MessagerieState extends State<Messagerie> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: SizedBox.expand(),
+    );
   }
 }
