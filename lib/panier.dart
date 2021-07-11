@@ -10,13 +10,26 @@ class Panier extends StatefulWidget {
 }
 
 class _PanierState extends State<Panier> {
-  final scrollController = SnappingSheetController();
+  SnappingSheetController scrollController = SnappingSheetController();
+  IconData iconGrabbing = Icons.shopping_bag_outlined;
+
   @override
   Widget build(BuildContext context) {
     return SnappingSheet(
       controller: scrollController,
       lockOverflowDrag: true,
       grabbingHeight: 800,
+      onSnapCompleted: (sheetPosition, snappingPosition) {
+        if ((scrollController.currentPosition < 200)) {
+          setState(() {
+            iconGrabbing = Icons.shopping_bag_outlined;
+          });
+        } else {
+          setState(() {
+            iconGrabbing = Icons.arrow_downward_rounded;
+          });
+        }
+      },
       grabbing: SizedBox.expand(
         child: Container(
           decoration: BoxDecoration(
@@ -82,12 +95,18 @@ class _PanierState extends State<Panier> {
                     Center(
                       child: IconButton(
                           onPressed: () {
-                            scrollController.snapToPosition(
-                              SnappingPosition.factor(positionFactor: 0.47),
-                            );
+                            if (scrollController.currentPosition < 200) {
+                              scrollController.snapToPosition(
+                                SnappingPosition.factor(positionFactor: 0.47),
+                              );
+                            } else {
+                              scrollController.snapToPosition(
+                                SnappingPosition.factor(positionFactor: -0.3),
+                              );
+                            }
                           },
                           icon: Icon(
-                            Icons.shopping_bag_outlined,
+                            iconGrabbing,
                             size: 35,
                           )),
                     ),

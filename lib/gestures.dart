@@ -19,7 +19,8 @@ class _GestureBarState extends State<GestureBar> {
             alignment: Alignment.center,
             child: Text(
               'mulmul',
-              style: TextStyle(fontSize: 42.0, fontFamily: 'Comfortaa'),
+              style: TextStyle(
+                  fontSize: 42.0, color: Colors.white, fontFamily: 'Comfortaa'),
             ),
           ),
         ),
@@ -29,7 +30,8 @@ class _GestureBarState extends State<GestureBar> {
             alignment: Alignment.center,
             child: Text(
               'Evry, France',
-              style: TextStyle(fontSize: 15.0, fontFamily: 'Montserra'),
+              style: TextStyle(
+                  fontSize: 15.0, color: Colors.white, fontFamily: 'Montserra'),
             ),
           ),
         ),
