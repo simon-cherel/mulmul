@@ -14,28 +14,6 @@ class _GestureBarState extends State<GestureBar> {
     return Column(
       children: [
         Expanded(
-          flex: 1,
-          child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              'mulmul',
-              style: TextStyle(
-                  fontSize: 42.0, color: Colors.white, fontFamily: 'Comfortaa'),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              'Evry, France',
-              style: TextStyle(
-                  fontSize: 15.0, color: Colors.white, fontFamily: 'Montserra'),
-            ),
-          ),
-        ),
-        Expanded(
           flex: 2,
           child: Container(
             child: Row(

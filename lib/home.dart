@@ -70,7 +70,23 @@ class _HomeState extends State<Home> {
                         )),
                   ),
                 ),
-                Expanded(flex: 19, child: GestureBar()),
+                Spacer(
+                  flex: 1,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Evry, France',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                          fontFamily: 'Montserra'),
+                    ),
+                  ),
+                ),
+                Expanded(flex: 17, child: GestureBar()),
               ],
             ),
           ),

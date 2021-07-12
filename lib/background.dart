@@ -46,6 +46,29 @@ class _BackgroundState extends State<Background> {
             )
           ],
         ),
+        Column(
+          children: [
+            Spacer(
+              flex: 2,
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  'mulmul',
+                  style: TextStyle(
+                      fontSize: 42.0,
+                      color: Colors.white,
+                      fontFamily: 'Comfortaa'),
+                ),
+              ),
+            ),
+            Spacer(
+              flex: 16,
+            ),
+          ],
+        ),
       ],
     );
   }
