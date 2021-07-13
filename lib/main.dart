@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mumul/messagerie.dart';
 
@@ -8,7 +10,11 @@ import 'qr.dart';
 import 'background.dart';
 import 'color_range.dart';
 
-void main() => runApp(MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -46,6 +52,7 @@ class _DomState extends State<Dom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[

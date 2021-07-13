@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "31720289818",
+    "project_id": "mulmul-c8f7e",
+    "storage_bucket": "mulmul-c8f7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31720289818:android:7a051feee204d9cc0b03a3",
+        "android_client_info": {
+          "package_name": "fr.mulmul.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31720289818-uq3e4fiedara5u9md8fk9272altlv7pd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBBcjUCUTPKlaOl3fB31YQ0XnM5ucBOEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31720289818-uq3e4fiedara5u9md8fk9272altlv7pd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "31720289818-5etqugreln17jkrtoqtfojf5ajei8osq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fr.mulmul.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

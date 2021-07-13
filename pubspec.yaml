@@ -30,10 +30,14 @@ dependencies:
   location: ^2.3.5
   flutter_polyline_points: ^0.2.6
   google_maps_flutter: ^2.0.6
+
   cupertino_icons: ^1.0.2
   adaptive_theme: ^2.2.0
+
   firebase_auth: ^1.4.1
   cloud_firestore: ^2.2.2
+  firebase_storage: ^9.0.0
+
   snapping_sheet: ^3.1.0
 
 dev_dependencies:

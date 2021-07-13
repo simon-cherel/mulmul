@@ -12,7 +12,7 @@ class Background extends StatefulWidget {
 }
 
 class _BackgroundState extends State<Background> {
-  String mapStyle = '';
+  String mapStyle = '[{}]';
 
   Future<String> getJsonFile(String path) async {
     return await rootBundle.loadString(path);

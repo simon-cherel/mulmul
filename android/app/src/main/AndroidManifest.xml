@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     
     <application
-        android:label="mumul"
+        android:label="mulmul"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyBi7wSSpu9Hi2je3XqVFlzAmK69wHRXH9U"/>
