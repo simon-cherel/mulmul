@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:mumul/messagerie.dart';
 
-import 'home.dart';
-import 'qr.dart';
-import 'background.dart';
+import 'dom.dart';
+
 import 'color_range.dart';
 
 Future main() async {
@@ -36,38 +34,6 @@ class MyApp extends StatelessWidget {
         theme: theme,
         darkTheme: darkTheme,
         home: Dom(),
-      ),
-    );
-  }
-}
-
-class Dom extends StatefulWidget {
-  const Dom({Key? key}) : super(key: key);
-
-  @override
-  _DomState createState() => _DomState();
-}
-
-class _DomState extends State<Dom> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomAppBar(),
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Background(),
-          PageView(
-            controller: PageController(
-              initialPage: 1,
-            ),
-            children: [
-              Messagerie(),
-              Home(),
-              Qr(),
-            ],
-          ),
-        ],
       ),
     );
   }

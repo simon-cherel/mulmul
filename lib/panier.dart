@@ -55,16 +55,12 @@ class _PanierState extends State<Panier> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                image: DecorationImage(
-                                    image: AssetImage('./assets/persona.png'),
-                                    fit: BoxFit.fill,
-                                    alignment: FractionalOffset.center),
-                              ),
-                              width: 120,
-                              height: 120,
+                            CircleAvatar(
+                              radius: 150,
+                              backgroundColor: AdaptiveTheme.of(context)
+                                  .theme
+                                  .backgroundColor,
+                              child: Image.asset('./assets/persona.png'),
                             ),
                           ],
                         ),
