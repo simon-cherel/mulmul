@@ -5,8 +5,8 @@ import 'panier.dart';
 import 'gestures.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
+  const Home({Key? key, required this.pageController}) : super(key: key);
+  final PageController pageController;
   @override
   _HomeState createState() => _HomeState();
 }
@@ -86,7 +86,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Expanded(flex: 17, child: GestureBar()),
+                Expanded(
+                    flex: 17,
+                    child: GestureBar(pageController: widget.pageController)),
               ],
             ),
           ),

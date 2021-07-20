@@ -4,17 +4,27 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 
+
+import 'loader.dart';
 import 'dom.dart';
+import 'error.dart';
+import 'auth.dart';
 
 import 'color_range.dart';
 
-Future main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
@@ -33,7 +43,19 @@ class MyApp extends StatelessWidget {
         title: 'mulmul',
         theme: theme,
         darkTheme: darkTheme,
-        home: Dom(),
+        home: FutureBuilder(
+            future: _initialization,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Error();
+              }
+
+              if (snapshot.connectionState == ConnectionState.done) {
+                return AuthWrapper(home: Dom());
+              }
+
+              return Loader();
+            }),
       ),
     );
   }

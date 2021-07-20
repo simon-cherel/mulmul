@@ -56,10 +56,8 @@ class _PanierState extends State<Panier> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             CircleAvatar(
-                              radius: 150,
-                              backgroundColor: AdaptiveTheme.of(context)
-                                  .theme
-                                  .backgroundColor,
+                              radius: 60,
+                              backgroundColor: Colors.transparent,
                               child: Image.asset('./assets/persona.png'),
                             ),
                           ],

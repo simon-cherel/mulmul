@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 class GestureBar extends StatefulWidget {
-  const GestureBar({Key? key}) : super(key: key);
-
+  const GestureBar({Key? key, required this.pageController}) : super(key: key);
+  final PageController pageController;
   @override
   _GestureBarState createState() => _GestureBarState();
 }
@@ -31,7 +31,11 @@ class _GestureBarState extends State<GestureBar> {
                         shape: BoxShape.circle,
                         color: AdaptiveTheme.of(context).theme.accentColor),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.pageController.animateToPage(0,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.ease);
+                      },
                       icon: Icon(
                         Icons.messenger_outline_rounded,
                         size: 20,
@@ -77,7 +81,11 @@ class _GestureBarState extends State<GestureBar> {
                         shape: BoxShape.circle,
                         color: AdaptiveTheme.of(context).theme.accentColor),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.pageController.animateToPage(2,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.ease);
+                      },
                       icon: Icon(
                         Icons.qr_code_rounded,
                         size: 20,

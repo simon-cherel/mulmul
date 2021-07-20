@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'qr.dart';
 import 'background.dart';
-import 'package:mumul/messagerie.dart';
+import 'messagerie.dart';
 
 class Dom extends StatefulWidget {
   const Dom({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class Dom extends StatefulWidget {
 }
 
 class _DomState extends State<Dom> {
+  PageController pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +22,10 @@ class _DomState extends State<Dom> {
         children: <Widget>[
           Background(),
           PageView(
-            controller: PageController(
-              initialPage: 1,
-            ),
+            controller: pageController,
             children: [
               Messagerie(),
-              Home(),
+              Home(pageController: pageController),
               Qr(),
             ],
           ),
