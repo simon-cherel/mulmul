@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 
-
 import 'loader.dart';
 import 'dom.dart';
 import 'error.dart';
@@ -51,7 +50,8 @@ class _AppState extends State<App> {
               }
 
               if (snapshot.connectionState == ConnectionState.done) {
-                return AuthWrapper(home: Dom());
+                // return AuthWrapper(home: Dom());
+                return Dom();
               }
 
               return Loader();

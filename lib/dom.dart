@@ -24,9 +24,9 @@ class _DomState extends State<Dom> {
           PageView(
             controller: pageController,
             children: [
-              Messagerie(),
+              Messagerie(pageController: pageController),
               Home(pageController: pageController),
-              Qr(),
+              Qr(pageController: pageController),
             ],
           ),
         ],

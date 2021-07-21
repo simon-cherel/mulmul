@@ -380,6 +380,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "qr",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/qr-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr_flutter",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/qr_flutter-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "shared_preferences",
       "rootUri": "file:///usr/local/Caskroom/flutter/2.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.6",
       "packageUri": "lib/",
@@ -518,7 +530,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-07-20T21:17:29.596708Z",
+  "generated": "2021-07-21T18:04:17.322568Z",
   "generator": "pub",
   "generatorVersion": "2.13.3"
 }

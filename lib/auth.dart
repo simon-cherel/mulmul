@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/style.dart';
+import 'welcome.dart';
 
 class AuthWrapper extends StatefulWidget {
   const AuthWrapper({Key? key, required this.home}) : super(key: key);
@@ -15,18 +12,7 @@ class AuthWrapper extends StatefulWidget {
 class _AuthWrapperState extends State<AuthWrapper> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-                onPressed: () {},
-                child: Text("Envoyer mon code de vérification"))
-          ],
-        ),
-      ),
-    );
+    return Welcome();
   }
 
   // Future<void> verifyPhone() async {
