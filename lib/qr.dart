@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'dart:ui';
+import 'buildblur.dart';
 
 class Qr extends StatefulWidget {
   const Qr({Key? key, required this.pageController}) : super(key: key);
@@ -35,45 +35,81 @@ class _QrState extends State<Qr> {
                     child: Column(
                       children: [
                         Align(
-                          alignment: Alignment.bottomLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              widget.pageController.animateToPage(1,
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.ease);
-                            },
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: Colors.black54,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Text(
-                            "À montrer au commerçant",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 20.0, fontFamily: 'Montserra'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 12,
-                          child: buildBlur(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Container(
-                              color: AdaptiveTheme.of(context)
-                                  .theme
-                                  .primaryColor
-                                  .withOpacity(0.70),
-                              child: Padding(
-                                padding: EdgeInsets.all(14),
-                                child: Container(),
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: AdaptiveTheme.of(context)
+                                      .theme
+                                      .primaryColor,
+                                  width: 3,
+                                ),
+                                shape: BoxShape.circle,
+                                color: AdaptiveTheme.of(context)
+                                    .theme
+                                    .accentColor),
+                            child: IconButton(
+                              onPressed: () {
+                                widget.pageController.animateToPage(1,
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              icon: Icon(
+                                Icons.arrow_back,
+                                size: 30,
                               ),
                             ),
                           ),
                         ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            "Qr code",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                fontFamily: 'Montserra',
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 6,
+                          child: buildBlur(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Container(
+                              color: Colors.white,
+                              child: Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Container(
+                                  child: Center(
+                                    child: QrImage(
+                                      data: 'Simon CHEREL',
+                                      version: 1,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      gapless: true,
+                                      errorStateBuilder: (cxt, err) {
+                                        return Container(
+                                          child: Center(
+                                            child: Text(
+                                                "Oups, quelque chose ne s'est pas déroulé comme prévu ...",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Montserra')),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Spacer(flex: 2)
                       ],
                     ),
                   ),
@@ -85,18 +121,4 @@ class _QrState extends State<Qr> {
       ),
     );
   }
-
-  Widget buildBlur({
-    required Widget child,
-    BorderRadius borderRadius = BorderRadius.zero,
-    double sigmaX = 40,
-    double sigmaY = 40,
-  }) =>
-      ClipRRect(
-        borderRadius: borderRadius,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
-          child: child,
-        ),
-      );
 }

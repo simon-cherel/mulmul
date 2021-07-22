@@ -1,6 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'buildblur.dart';
 
 class Messagerie extends StatefulWidget {
   const Messagerie({Key? key, required this.pageController}) : super(key: key);
@@ -30,21 +30,33 @@ class _MessagerieState extends State<Messagerie> {
                     .withOpacity(0.70),
                 child: SizedBox.expand(
                   child: Padding(
-                    padding: EdgeInsets.all(14),
+                    padding: EdgeInsets.all(10),
                     child: Column(
                       children: [
                         Align(
-                          alignment: Alignment.bottomRight,
-                          child: GestureDetector(
-                            onTap: () {
-                              widget.pageController.animateToPage(1,
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.ease);
-                            },
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.black54,
-                              size: 30,
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: AdaptiveTheme.of(context)
+                                      .theme
+                                      .primaryColor,
+                                  width: 3,
+                                ),
+                                shape: BoxShape.circle,
+                                color: AdaptiveTheme.of(context)
+                                    .theme
+                                    .accentColor),
+                            child: IconButton(
+                              onPressed: () {
+                                widget.pageController.animateToPage(1,
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              icon: Icon(
+                                Icons.arrow_forward,
+                                size: 30,
+                              ),
                             ),
                           ),
                         ),
@@ -53,7 +65,9 @@ class _MessagerieState extends State<Messagerie> {
                           child: Text(
                             "Messagerie",
                             style: TextStyle(
-                                fontSize: 20.0, fontFamily: 'Montserra'),
+                                fontSize: 20.0,
+                                fontFamily: 'Montserra',
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         Expanded(
@@ -93,18 +107,4 @@ class _MessagerieState extends State<Messagerie> {
       ),
     );
   }
-
-  Widget buildBlur({
-    required Widget child,
-    BorderRadius borderRadius = BorderRadius.zero,
-    double sigmaX = 40,
-    double sigmaY = 40,
-  }) =>
-      ClipRRect(
-        borderRadius: borderRadius,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
-          child: child,
-        ),
-      );
 }

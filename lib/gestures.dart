@@ -38,7 +38,7 @@ class _GestureBarState extends State<GestureBar> {
                       },
                       icon: Icon(
                         Icons.messenger_outline_rounded,
-                        size: 20,
+                        size: 30,
                       ),
                     ),
                   ),
@@ -88,7 +88,7 @@ class _GestureBarState extends State<GestureBar> {
                       },
                       icon: Icon(
                         Icons.qr_code_rounded,
-                        size: 20,
+                        size: 30,
                       ),
                     ),
                   ),

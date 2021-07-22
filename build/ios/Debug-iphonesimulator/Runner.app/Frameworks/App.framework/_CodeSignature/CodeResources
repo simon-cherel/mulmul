@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		HLvcZamdp1m+veNkirI5qehaDSw=
+		EVqsjQPlhkArFagVDrIgnDEOsjc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
-		LjUlT81dWslNM2m3cnLXjCtdO1g=
+		FApNspl9oH1noI8afajYOFvx5e4=
 		</data>
 		<key>flutter_assets/assets/.DS_Store</key>
 		<data>
@@ -39,6 +39,10 @@
 		<key>flutter_assets/assets/Montserrat/Montserrat-Regular.ttf</key>
 		<data>
 		0ls1JC3rHG/4iLgWLKKqzDVtOJk=
+		</data>
+		<key>flutter_assets/assets/boucherie.png</key>
+		<data>
+		dGpObDtuW6LfyWc5PeMRRuC64c8=
 		</data>
 		<key>flutter_assets/assets/localisation.png</key>
 		<data>
@@ -74,7 +78,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		UMRabnTONQH64C5D67olc8+RBK8=
+		s6ZjwtQXx/vSH9/Yyi1sMJdK6E0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1131,11 +1135,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HLvcZamdp1m+veNkirI5qehaDSw=
+			EVqsjQPlhkArFagVDrIgnDEOsjc=
 			</data>
 			<key>hash2</key>
 			<data>
-			iYk9wZBKFEQdn61b4bl2GnFyhG9EAZxNmu62EMdFWqY=
+			J69tfUyAVGYODbkEtmBOmt3BJCXWKVyCMOHNstEeKfo=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -1153,11 +1157,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LjUlT81dWslNM2m3cnLXjCtdO1g=
+			FApNspl9oH1noI8afajYOFvx5e4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vsc3g08DdSMquNOr3nRV8Vn7ujvaAmbWQ6yTlZ9b7/w=
+			7QMCgwKyfZY4oSiIMxhqaV09PnQfMnGl4RDfXxNytrs=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/.localisation.png</key>
@@ -1202,6 +1206,17 @@
 			<key>hash2</key>
 			<data>
 			B3zasVFhIyqbpxJNLd16lCUUV1B4jpqWbBVsxmJ09SU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/boucherie.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dGpObDtuW6LfyWc5PeMRRuC64c8=
+			</data>
+			<key>hash2</key>
+			<data>
+			vk8C4COWPFviHRjviN3q1FXXINgklNaZv+6sBbgJlGk=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/localisation.png</key>
@@ -1296,11 +1311,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UMRabnTONQH64C5D67olc8+RBK8=
+			s6ZjwtQXx/vSH9/Yyi1sMJdK6E0=
 			</data>
 			<key>hash2</key>
 			<data>
-			1FyBsr1V3anXMz69eY68b0ACBwKjwDEcqVxtV0OLjJo=
+			pQfcKoIKIud7zqUpFk7qlOCJZpPjoVg7cmtJdu1bE1U=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

@@ -50,8 +50,7 @@ class _AppState extends State<App> {
               }
 
               if (snapshot.connectionState == ConnectionState.done) {
-                // return AuthWrapper(home: Dom());
-                return Dom();
+                return AuthWrapper(home: Dom());
               }
 
               return Loader();

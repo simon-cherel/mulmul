@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mulmul/facade.dart';
 
 import 'home.dart';
 import 'qr.dart';
 import 'background.dart';
 import 'messagerie.dart';
+import 'commerce.dart';
 
 class Dom extends StatefulWidget {
   const Dom({Key? key}) : super(key: key);
@@ -13,7 +15,8 @@ class Dom extends StatefulWidget {
 }
 
 class _DomState extends State<Dom> {
-  PageController pageController = PageController(initialPage: 1);
+  PageController pageControllerH = PageController(initialPage: 1);
+  PageController pageControllerV = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +25,28 @@ class _DomState extends State<Dom> {
         children: <Widget>[
           Background(),
           PageView(
-            controller: pageController,
+            controller: pageControllerH,
             children: [
-              Messagerie(pageController: pageController),
-              Home(pageController: pageController),
-              Qr(pageController: pageController),
+              Messagerie(pageController: pageControllerH),
+              PageView(
+                scrollDirection: Axis.vertical,
+                physics: ClampingScrollPhysics(),
+                controller: pageControllerV,
+                children: [
+                  Facade(
+                      pageControllerH: pageControllerH,
+                      pageControllerV: pageControllerV,
+                      commerce: Commerce(
+                          type: "Boucherie",
+                          nom: "Boucherie, Les épinettes",
+                          localisation: "48.621740, 2.441571",
+                          commercant: "Abdel Kechich")),
+                  Home(
+                      pageControllerH: pageControllerH,
+                      pageControllerV: pageControllerV),
+                ],
+              ),
+              Qr(pageController: pageControllerH),
             ],
           ),
         ],
