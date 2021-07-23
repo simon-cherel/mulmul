@@ -39,15 +39,12 @@ class _QrState extends State<Qr> {
                           child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: AdaptiveTheme.of(context)
-                                      .theme
-                                      .primaryColor,
-                                  width: 3,
+                                  width: 1,
                                 ),
                                 shape: BoxShape.circle,
                                 color: AdaptiveTheme.of(context)
                                     .theme
-                                    .accentColor),
+                                    .backgroundColor),
                             child: IconButton(
                               onPressed: () {
                                 widget.pageController.animateToPage(1,

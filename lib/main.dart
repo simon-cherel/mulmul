@@ -31,6 +31,7 @@ class _AppState extends State<App> {
         brightness: Brightness.light,
         primarySwatch: MaterialColor(0xffffb6af, color),
         accentColor: MaterialColor(0xfffffefc, color),
+        backgroundColor: MaterialColor(0xffffefed, color),
       ),
       dark: ThemeData(
         brightness: Brightness.dark,

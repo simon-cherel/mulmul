@@ -36,7 +36,7 @@ class _FacadeState extends State<Facade> {
                 color: AdaptiveTheme.of(context)
                     .theme
                     .accentColor
-                    .withOpacity(0.70),
+                    .withOpacity(0.95),
                 child: SizedBox.expand(
                   child: Padding(
                     padding: EdgeInsets.all(10),
@@ -54,15 +54,12 @@ class _FacadeState extends State<Facade> {
                                   height: 50,
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: AdaptiveTheme.of(context)
-                                            .theme
-                                            .primaryColor,
-                                        width: 3,
+                                        width: 1,
                                       ),
                                       shape: BoxShape.circle,
                                       color: AdaptiveTheme.of(context)
                                           .theme
-                                          .accentColor),
+                                          .backgroundColor),
                                   child: Icon(Icons.storefront, size: 30),
                                 ),
                               ),
@@ -71,7 +68,7 @@ class _FacadeState extends State<Facade> {
                                 children: [
                                   Text(
                                     widget.commerce.nom,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                       fontSize: 16.0,
                                       fontFamily: 'Montserra',
@@ -80,7 +77,7 @@ class _FacadeState extends State<Facade> {
                                   ),
                                   Text(
                                     "Evry, France",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                       fontSize: 14.0,
                                       fontFamily: 'Montserra',
@@ -95,15 +92,12 @@ class _FacadeState extends State<Facade> {
                                   height: 50,
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: AdaptiveTheme.of(context)
-                                            .theme
-                                            .primaryColor,
-                                        width: 3,
+                                        width: 1,
                                       ),
                                       shape: BoxShape.circle,
                                       color: AdaptiveTheme.of(context)
                                           .theme
-                                          .accentColor),
+                                          .backgroundColor),
                                   child: IconButton(
                                     onPressed: () {
                                       widget.pageControllerH.animateToPage(0,
@@ -129,15 +123,12 @@ class _FacadeState extends State<Facade> {
                           child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: AdaptiveTheme.of(context)
-                                      .theme
-                                      .primaryColor,
-                                  width: 3,
+                                  width: 1,
                                 ),
                                 shape: BoxShape.circle,
                                 color: AdaptiveTheme.of(context)
                                     .theme
-                                    .accentColor),
+                                    .backgroundColor),
                             child: IconButton(
                               onPressed: () {
                                 widget.pageControllerV.animateToPage(1,

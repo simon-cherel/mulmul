@@ -25,11 +25,10 @@ class _GestureBarState extends State<GestureBar> {
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: AdaptiveTheme.of(context).theme.primaryColor,
-                          width: 3,
+                          width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.accentColor),
+                        color: AdaptiveTheme.of(context).theme.backgroundColor),
                     child: IconButton(
                       onPressed: () {
                         widget.pageController.animateToPage(0,
@@ -59,12 +58,9 @@ class _GestureBarState extends State<GestureBar> {
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
-                            borderSide: BorderSide(
-                                width: 3,
-                                color: AdaptiveTheme.of(context)
-                                    .theme
-                                    .primaryColor)),
-                        fillColor: AdaptiveTheme.of(context).theme.accentColor,
+                            borderSide: BorderSide(width: 1)),
+                        fillColor:
+                            AdaptiveTheme.of(context).theme.backgroundColor,
                         filled: true,
                       ),
                     ),
@@ -75,11 +71,10 @@ class _GestureBarState extends State<GestureBar> {
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: AdaptiveTheme.of(context).theme.primaryColor,
-                          width: 3,
+                          width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.accentColor),
+                        color: AdaptiveTheme.of(context).theme.backgroundColor),
                     child: IconButton(
                       onPressed: () {
                         widget.pageController.animateToPage(2,

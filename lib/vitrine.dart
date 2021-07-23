@@ -17,46 +17,21 @@ class _VitrineState extends State<Vitrine> {
   Expanded buildNavBarItem(
       PageController pageController, int page, IconData icon) {
     return Expanded(
-      child: buildBlur(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: (page == 0)
+              ? BorderRadius.horizontal(left: Radius.circular(24))
+              : (page == 1)
+                  ? BorderRadius.zero
+                  : BorderRadius.horizontal(right: Radius.circular(24)),
+          color: AdaptiveTheme.of(context).theme.backgroundColor,
+        ),
         child: Container(
-          decoration: (page == pageIndex)
+          decoration: (pageIndex == page)
               ? BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: 3,
-                      color: AdaptiveTheme.of(context).theme.primaryColor,
-                    ),
-                  ),
-                  gradient: LinearGradient(
-                    colors: [
-                      AdaptiveTheme.of(context)
-                          .theme
-                          .primaryColor
-                          .withOpacity(0.30),
-                      AdaptiveTheme.of(context)
-                          .theme
-                          .primaryColor
-                          .withOpacity(0.015)
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                  color: (page == pageIndex)
-                      ? AdaptiveTheme.of(context)
-                          .theme
-                          .primaryColor
-                          .withOpacity(0.70)
-                      : AdaptiveTheme.of(context)
-                          .theme
-                          .accentColor
-                          .withOpacity(0.70),
-                )
-              : BoxDecoration(
-                  color: AdaptiveTheme.of(context)
-                      .theme
-                      .accentColor
-                      .withOpacity(0.70),
-                ),
+                  color: AdaptiveTheme.of(context).theme.primaryColor,
+                  borderRadius: BorderRadius.circular(24))
+              : BoxDecoration(),
           child: IconButton(
             onPressed: () {
               setState(() {
@@ -68,11 +43,6 @@ class _VitrineState extends State<Vitrine> {
             icon: Icon(icon),
           ),
         ),
-        borderRadius: (page == 0)
-            ? BorderRadius.only(bottomLeft: Radius.circular(24))
-            : (page == 1)
-                ? BorderRadius.zero
-                : BorderRadius.only(bottomRight: Radius.circular(24)),
       ),
     );
   }
@@ -84,24 +54,14 @@ class _VitrineState extends State<Vitrine> {
         children: [
           Expanded(
             flex: 22,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AdaptiveTheme.of(context).theme.accentColor,
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(24), bottom: Radius.zero),
-              ),
-              child: PageView(
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  Doormate(commerce: widget.commerce),
-                  Flux(commerce: widget.commerce),
-                  Community(commerce: widget.commerce)
-                ],
-                controller: pageController,
-              ),
+            child: PageView(
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                Doormate(commerce: widget.commerce),
+                Flux(commerce: widget.commerce),
+                Community(commerce: widget.commerce)
+              ],
+              controller: pageController,
             ),
           ),
           Expanded(
@@ -129,10 +89,14 @@ class Doormate extends StatelessWidget {
       children: [
         Expanded(
           flex: 6,
-          child: AspectRatio(
-            aspectRatio: 255 / 408,
-            child: Image.asset(
-              './assets/boucherie.png',
+          child: SizedBox(
+            width: double.infinity,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                './assets/boucherie.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -167,7 +131,8 @@ class Doormate extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: [Produit(commerce: commerce)],
           ),
-        )
+        ),
+        Spacer(flex: 1)
       ],
     );
   }

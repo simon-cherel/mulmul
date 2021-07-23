@@ -5,6 +5,7 @@ import 'logo.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 class Otp extends StatelessWidget {
   const Otp({Key? key}) : super(key: key);
@@ -22,14 +23,22 @@ class Otp extends StatelessWidget {
               children: <Widget>[
                 Align(
                   alignment: Alignment.topLeft,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.black54,
-                      size: 32,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                        ),
+                        shape: BoxShape.circle,
+                        color: AdaptiveTheme.of(context).theme.backgroundColor),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Colors.black54,
+                      ),
                     ),
                   ),
                 ),
