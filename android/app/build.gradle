@@ -60,3 +60,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.2.1')
     implementation "androidx.browser:browser:1.2.0"
 }
+
+rootProject.ext {
+  set('FlutterFire', [
+    FirebaseSDKVersion: '28.3.0'
+  ])
+}
