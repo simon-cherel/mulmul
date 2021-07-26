@@ -1,5 +1,5 @@
 # Override Firebase SDK Version
-$FirebaseSDKVersion = '8.0.0'
+$FirebaseSDKVersion = '8.4.0'
 # Uncomment this line to define a global platform for your project
 platform :ios, '14.5'
 
@@ -43,7 +43,7 @@ flutter_ios_podfile_setup
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '8.3.0'
+  pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '8.4.0'
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 
