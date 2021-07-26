@@ -5,12 +5,23 @@ import 'color_range.dart';
 import 'logo.dart';
 import 'dom.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool passwordObs = true;
+  @override
   Widget build(BuildContext context) {
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    firebase_auth.FirebaseAuth auth = firebase_auth.FirebaseAuth.instance;
+
     return Scaffold(
       backgroundColor: MaterialColor(0xffffefed, color),
       body: SafeArea(
@@ -28,7 +39,7 @@ class Login extends StatelessWidget {
                           width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.backgroundColor),
+                        color: AdaptiveTheme.of(context).theme.primaryColor),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -71,6 +82,7 @@ class Login extends StatelessWidget {
                   child: Column(
                     children: [
                       InternationalPhoneNumberInput(
+                        textFieldController: phoneController,
                         onInputChanged: (PhoneNumber number) {
                           print(number.phoneNumber);
                         },
@@ -100,9 +112,19 @@ class Login extends StatelessWidget {
                         height: 5,
                       ),
                       TextField(
-                        obscureText: true,
+                        controller: passwordController,
+                        obscureText: passwordObs,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                              icon: Icon(passwordObs
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  passwordObs = !passwordObs;
+                                });
+                              }),
                           hintStyle: TextStyle(
                               color: Colors.black, fontFamily: 'Montserra'),
                           hintText: "Mot de passe",
@@ -122,11 +144,27 @@ class Login extends StatelessWidget {
                       SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                      builder: (context) => Dom()),
-                                  (route) => route.isFirst);
+                            onPressed: () async {
+                              try {
+                                firebase_auth.ConfirmationResult
+                                    confirmationResult =
+                                    await auth.signInWithPhoneNumber(
+                                        phoneController.text);
+                                firebase_auth.UserCredential userCredential =
+                                    await confirmationResult.confirm('123456');
+                                Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (context) => Dom()),
+                                    (route) => route.isFirst);
+                              } on firebase_auth
+                                  .FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  print('No user found for that email.');
+                                } else if (e.code == 'wrong-password') {
+                                  print(
+                                      'Wrong password provided for that user.');
+                                }
+                              }
                             },
                             child: Text(
                               "Se connecter",

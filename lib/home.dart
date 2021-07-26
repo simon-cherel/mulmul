@@ -70,7 +70,8 @@ class _HomeState extends State<Home> {
                         icon: Icon(
                           iconTheme,
                           size: 30,
-                          color: AdaptiveTheme.of(context).theme.primaryColor,
+                          color:
+                              AdaptiveTheme.of(context).theme.backgroundColor,
                         )),
                   ),
                 ),

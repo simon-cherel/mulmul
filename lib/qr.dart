@@ -44,7 +44,7 @@ class _QrState extends State<Qr> {
                                 shape: BoxShape.circle,
                                 color: AdaptiveTheme.of(context)
                                     .theme
-                                    .backgroundColor),
+                                    .primaryColor),
                             child: IconButton(
                               onPressed: () {
                                 widget.pageController.animateToPage(1,

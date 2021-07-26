@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'commerce.dart';
-import 'buildblur.dart';
 
 class Vitrine extends StatefulWidget {
   const Vitrine({Key? key, required this.commerce}) : super(key: key);

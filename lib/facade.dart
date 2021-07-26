@@ -25,9 +25,6 @@ class _FacadeState extends State<Facade> {
       padding: const EdgeInsets.fromLTRB(10, 50, 10, 10),
       child: Column(
         children: [
-          Spacer(
-            flex: 1,
-          ),
           Expanded(
             flex: 7,
             child: buildBlur(
@@ -128,7 +125,7 @@ class _FacadeState extends State<Facade> {
                                 shape: BoxShape.circle,
                                 color: AdaptiveTheme.of(context)
                                     .theme
-                                    .backgroundColor),
+                                    .primaryColor),
                             child: IconButton(
                               onPressed: () {
                                 widget.pageControllerV.animateToPage(1,

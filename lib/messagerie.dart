@@ -43,7 +43,7 @@ class _MessagerieState extends State<Messagerie> {
                                 shape: BoxShape.circle,
                                 color: AdaptiveTheme.of(context)
                                     .theme
-                                    .backgroundColor),
+                                    .primaryColor),
                             child: IconButton(
                               onPressed: () {
                                 widget.pageController.animateToPage(1,
@@ -74,7 +74,7 @@ class _MessagerieState extends State<Messagerie> {
                             child: Container(
                               color: AdaptiveTheme.of(context)
                                   .theme
-                                  .primaryColor
+                                  .backgroundColor
                                   .withOpacity(0.70),
                               child: Padding(
                                 padding: EdgeInsets.all(14),

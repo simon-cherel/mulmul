@@ -28,7 +28,7 @@ class _GestureBarState extends State<GestureBar> {
                           width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.backgroundColor),
+                        color: AdaptiveTheme.of(context).theme.primaryColor),
                     child: IconButton(
                       onPressed: () {
                         widget.pageController.animateToPage(0,
@@ -56,9 +56,8 @@ class _GestureBarState extends State<GestureBar> {
                             TextStyle(fontSize: 20.0, fontFamily: 'Montserra'),
                         hintMaxLines: 1,
                         border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
-                            borderSide: BorderSide(width: 1)),
+                          borderRadius: BorderRadius.all(Radius.circular(100)),
+                        ),
                         fillColor:
                             AdaptiveTheme.of(context).theme.backgroundColor,
                         filled: true,
@@ -74,7 +73,7 @@ class _GestureBarState extends State<GestureBar> {
                           width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.backgroundColor),
+                        color: AdaptiveTheme.of(context).theme.primaryColor),
                     child: IconButton(
                       onPressed: () {
                         widget.pageController.animateToPage(2,

@@ -29,7 +29,7 @@ class Otp extends StatelessWidget {
                           width: 1,
                         ),
                         shape: BoxShape.circle,
-                        color: AdaptiveTheme.of(context).theme.backgroundColor),
+                        color: AdaptiveTheme.of(context).theme.primaryColor),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pop(context);

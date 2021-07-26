@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'map_viewer.dart';
 
 class Background extends StatefulWidget {
-  const Background({Key? key}) : super(key: key);
-
+  const Background({Key? key, required this.mulmul}) : super(key: key);
+  final bool mulmul;
   @override
   _BackgroundState createState() => _BackgroundState();
 }
@@ -56,7 +56,7 @@ class _BackgroundState extends State<Background> {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(
-                  'mulmul',
+                  widget.mulmul ? 'mulmul' : '',
                   style: TextStyle(
                       fontSize: 42.0,
                       color: Colors.white,
